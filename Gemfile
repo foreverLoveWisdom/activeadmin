@@ -10,13 +10,14 @@ group :development, :test do
   gem "draper"
   gem "devise"
 
-  gem "rails", "~> 7.0.0"
+  gem "rails", "~> 8.0.0"
 
   gem "sprockets-rails"
-  gem "sassc-rails"
+  gem "ransack", ">= 4.2.0"
+  gem "formtastic", ">= 5.0.0"
 
   gem "cssbundling-rails"
-  gem "jsbundling-rails"
+  gem "importmap-rails"
 end
 
 group :test do
@@ -28,7 +29,7 @@ group :test do
   gem "simplecov-cobertura", require: false
   gem "cucumber-rails", require: false
   gem "cucumber"
-  gem "database_cleaner"
+  gem "database_cleaner-active_record"
   gem "launchy"
   gem "parallel_tests"
   gem "rspec-rails"
@@ -40,21 +41,13 @@ group :test do
   gem "rails-i18n" # Provides default i18n for many languages
 end
 
-group :release do
-  gem "chandler" # Github releases from changelog
-  gem "octokit"
-end
-
 group :rubocop do
   gem "rubocop"
+  gem "rubocop-capybara"
   gem "rubocop-packaging"
+  gem "rubocop-performance"
   gem "rubocop-rspec"
   gem "rubocop-rails"
-end
-
-group :docs do
-  gem "yard" # Documentation generator
-  gem "kramdown" # Markdown implementation (for yard)
 end
 
 gemspec path: "."

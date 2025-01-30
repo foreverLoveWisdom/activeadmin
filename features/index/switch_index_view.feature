@@ -9,7 +9,7 @@ Feature: Switch Index View
     And an index configuration of:
       """
       ActiveAdmin.register Post do
-        index as: :table do
+        index do
           column :title
         end
         index as: CustomIndexView do |post|
@@ -17,7 +17,7 @@ Feature: Switch Index View
         end
       end
       """
-    Then I should see "Hello World from Table" within ".index_as_table"
+    Then I should see "Hello World from Table" within ".index-as-table"
 
   Scenario: Show links to different page views
     Given a post with the title "Hello World from Table" exists
@@ -27,12 +27,12 @@ Feature: Switch Index View
         index as: CustomIndexView do |post|
           span(link_to(post.title, admin_post_path(post)))
         end
-        index as: :table, default: true do
+        index default: true do
           column :title
         end
       end
       """
-    Then I should see "Hello World from Table" within ".index_as_table"
+    Then I should see "Hello World from Table" within ".index-as-table"
     And I should see a link to "Table"
     And I should see a link to "Custom"
 
@@ -44,12 +44,12 @@ Feature: Switch Index View
   #       index as: CustomIndexView do |post|
   #         span(link_to(post.title, admin_post_path(post)))
   #       end
-  #       index as: :table, default: true do
+  #       index default: true do
   #         column :title
   #         column :body
   #       end
   #     end
   #     """
-  #   Then I should see "My body is awesome" within ".index_as_table"
+  #   Then I should see "My body is awesome" within ".index-as-table"
   #   When I follow "Custom"
   #   Then I should not see "My body is awesome" within ".custom-index-view"

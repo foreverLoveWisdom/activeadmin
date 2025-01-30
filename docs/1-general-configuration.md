@@ -142,8 +142,7 @@ end
 
 ## Comments
 
-By default Active Admin includes comments on resources. Sometimes, this is
-undesired. To disable comments:
+By default Active Admin includes comments on resources. To disable comments:
 
 ```ruby
 # For the entire application:
@@ -192,7 +191,7 @@ config.comments_menu = { parent: 'Admin', priority: 1 }
 Remember to indicate where to place the comments and form with:
 
 ```ruby
-active_admin_comments
+active_admin_comments_for(resource)
 ```
 
 ## Utility Navigation
@@ -206,7 +205,7 @@ ActiveAdmin.setup do |config|
   config.namespace :admin do |admin|
     admin.build_menu :utility_navigation do |menu|
       menu.add label: "ActiveAdmin.info", url: "https://www.activeadmin.info",
-                                          html_options: { target: :blank }
+                                          html_options: { target: "_blank" }
       admin.add_current_user_to_menu  menu
       admin.add_logout_button_to_menu menu
     end

@@ -21,9 +21,6 @@ pl:
         updated_at: "Zaktualizowany"
   active_admin:
     dashboard: Pulpit
-    dashboard_welcome:
-      welcome: "Witaj w Active Adminie. To jest domyślny pulpit."
-      call_to_action: "Aby dodać sekcje do pulpitu, sprawdź 'app/admin/dashboard.rb'"
     view: "Podgląd"
     edit: "Edytuj"
     delete: "Usuń"
@@ -52,15 +49,17 @@ pl:
     scopes:
       all: "Wszystko"
     search_status:
-      headline: "Status wyszukiwania:"
-      current_scope: "Aktywny zakres:"
-      current_filters: "Aktywne filtry:"
+      title: "Wyszukiwanie"
+      title_with_scope: "Wyszukiwanie %{name}"
       no_current_filters: "Brak"
     status_tag:
       "yes": "Tak"
       "no": "Nie"
       "unset": "Nie"
-    main_content: "Zaimplementuj %{model}#main_content aby wyświetlić treść."
+    toggle_dark_mode: Przełącz tryb ciemny
+    toggle_main_navigation_menu: Przełącz główną nawigację
+    toggle_section: Przełącz sekcję
+    toggle_user_menu: Przełącz menu użytkownika
     logout: "Wyloguj"
     powered_by: "Powered by %{active_admin} %{version}"
     sidebars:
@@ -80,8 +79,6 @@ pl:
     blank_slate:
       content: "Nie ma jeszcze zasobu %{resource_name}."
       link: "Utwórz go"
-    dropdown_actions:
-      button_label: "Akcje"
     batch_actions:
       button_label: "Akcje na partiach"
       default_confirmation: "Czy na pewno chcesz to zrobić?"
@@ -151,6 +148,3 @@ pl:
       message: "Nie masz uprawnień wystarczających do wykonania tej akcji."
     index_list:
       table: "Tabela"
-      block: "Lista"
-      grid: "Siatka"
-      blog: "Blog"

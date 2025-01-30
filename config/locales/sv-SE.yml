@@ -17,9 +17,6 @@
         updated_at: "Aktualiserad"
   active_admin:
     dashboard: Skrivbord
-    dashboard_welcome:
-      welcome: "Välkommen till Active Admin. Detta är ditt standardskrivbord."
-      call_to_action: "För att lägga till sektioner, gå till 'app/admin/dashboard.rb'"
     view: "Visa"
     edit: "Redigera"
     delete: "Ta bort"
@@ -48,15 +45,11 @@
     scopes:
       all: "Alla"
     search_status:
-      headline: "Sökstatus:"
-      current_scope: "Omfattning:"
-      current_filters: "Aktiva filter:"
       no_current_filters: "Inga"
     status_tag:
       "yes": "Ja"
       "no": "Nej"
       "unset": "Nej"
-    main_content: "Implementera %{model}#main_content för att visa innehåll."
     logout: "Logga ut"
     powered_by: "Powered by %{active_admin} %{version}"
     sidebars:
@@ -76,8 +69,6 @@
     blank_slate:
       content: "Det finns inga %{resource_name} än."
       link: "Skapa en"
-    dropdown_actions:
-      button_label: "Åtgärder"
     batch_actions:
       button_label: "Batch-åtgärder"
       default_confirmation: "Är du säker på att du vill göra detta?"
@@ -145,6 +136,3 @@
       message: "Du har inte behörighet att utföra denna åtgärd."
     index_list:
       table: "Tabell"
-      block: "Lista"
-      grid: "Rutnät"
-      blog: "Blogg"

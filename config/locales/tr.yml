@@ -1,9 +1,6 @@
 tr:
   active_admin:
     dashboard: "Gösterge Paneli"
-    dashboard_welcome:
-      welcome: "Active Admin'e hoş geldiniz. Burası varsayılan gösterge paneli sayfasıdır."
-      call_to_action: "Buraya bölümler eklemek için 'app/admin/dashboard.rb' dosyasına bakabilirsiniz."
     view: "Görüntüle"
     edit: "Düzenle"
     delete: "Sil"
@@ -27,15 +24,11 @@ tr:
         filter: "Filtrele"
         clear: "Filtreleri Temizle"
     search_status:
-      headline: "Arama"
-      current_scope: "Kapsam:"
-      current_filters: "Seçili filtreler:"
       no_current_filters: "Yok"
     status_tag:
       "yes": "Evet"
       "no": "Hayır"
       "unset": "Hayır"
-    main_content: "İçeriği görüntülemek için lütfen %{model}#main_content metodunu ekleyin."
     logout: "Çıkış Yap"
     powered_by: "%{active_admin} %{version} tarafından desteklenmektedir."
     sidebars:
@@ -55,8 +48,6 @@ tr:
     blank_slate:
       content: "Henüz %{resource_name} yok."
       link: "Bir tane oluşturun"
-    dropdown_actions:
-      button_label: "İşlemler"
     batch_actions:
       button_label: "Toplu İşlemler"
       default_confirmation: "Bunu yapmak istediğinizden emin misiniz?"
@@ -124,6 +115,3 @@ tr:
       message: "Bu işlemi gerçekleştirmek için yetkiniz yok."
     index_list:
       table: "Tablo"
-      block: "Liste"
-      grid: "Izgara"
-      blog: "Blog"
