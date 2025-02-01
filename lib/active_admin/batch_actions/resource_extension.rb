@@ -58,7 +58,7 @@ module ActiveAdmin
         destroy_options = {
           priority: 100,
           confirm: proc { I18n.t("active_admin.batch_actions.delete_confirmation", plural_model: active_admin_config.plural_resource_label.downcase) },
-          if: proc { controller.action_methods.include?("destroy") && authorized?(ActiveAdmin::Auth::DESTROY, active_admin_config.resource_class) }
+          if: proc { destroy_action_authorized?(active_admin_config.resource_class) }
         }
 
         add_batch_action :destroy, proc { I18n.t("active_admin.delete") }, destroy_options do |selected_ids|
@@ -95,7 +95,7 @@ module ActiveAdmin
     # => Will create an action that appears in the action list popover
     #
     #   BatchAction.new(:flag) { |selection| redirect_to collection_path, notice: "#{selection.length} users flagged" }
-    # => Will create an action that uses a block to process the request (which receives one paramater of the selected objects)
+    # => Will create an action that uses a block to process the request (which receives one parameter of the selected objects)
     #
     #   BatchAction.new("Perform Long Operation on") { |selection| }
     # => You can create batch actions with a title instead of a Symbol
@@ -109,7 +109,7 @@ module ActiveAdmin
     #   BatchAction.new(:flag, confirm: "Are you sure?") { |selection| }
     # => You can pass a custom confirmation message through `:confirm`
     #
-    #   BatchAction.new(:flag, partial: "flag_form", link_html_options: { "data-modal-toggle": "flag-form-modal" }) { |selection, inputs| }
+    #   BatchAction.new(:flag, partial: "flag_form", link_html_options: { "data-modal-target": "modal-id", "data-modal-show": "modal-id" }) { |selection, inputs| }
     # => Pass a partial that contains a modal and with a data attribute that opens the modal with the form for the user to fill out.
     #
     def initialize(sym, title, options = {}, &block)

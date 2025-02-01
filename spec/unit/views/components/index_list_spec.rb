@@ -13,7 +13,7 @@ RSpec.describe ActiveAdmin::Views::IndexList do
       end
 
       def self.index_name
-        "block"
+        "custom"
       end
     end
   end
@@ -37,20 +37,20 @@ RSpec.describe ActiveAdmin::Views::IndexList do
 
     subject do
       render_arbre_component({ index_classes: index_classes }, helpers) do
-        index_list_renderer(index_classes)
+        insert_tag(ActiveAdmin::Views::IndexList, index_classes)
       end
     end
 
     describe "#tag_name" do
       subject { super().tag_name }
-      it { is_expected.to eq "ul" }
+      it { is_expected.to eq "div" }
     end
 
     it "should contain the names of available indexes in links" do
       a_tags = subject.find_by_tag("a")
       expect(a_tags.size).to eq 2
       expect(a_tags.first.to_s).to include("Table")
-      expect(a_tags.last.to_s).to include("List")
+      expect(a_tags.last.to_s).to include("Custom")
     end
 
     it "should maintain index filter parameters" do
@@ -58,7 +58,7 @@ RSpec.describe ActiveAdmin::Views::IndexList do
       expect(a_tags.first.attributes[:href])
         .to eq("/?#{ { as: "table", q: { title_cont: "terms" } }.to_query }")
       expect(a_tags.last.attributes[:href])
-        .to eq("/?#{ { as: "block", q: { title_cont: "terms" } }.to_query }")
+        .to eq("/?#{ { as: "custom", q: { title_cont: "terms" } }.to_query }")
     end
   end
 end

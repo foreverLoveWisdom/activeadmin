@@ -17,9 +17,6 @@ es:
         updated_at: "Fecha de actualización"
   active_admin:
     dashboard: "Inicio"
-    dashboard_welcome:
-      welcome: "Bienvenido a Active Admin. Esta es la página de inicio predeterminada."
-      call_to_action: "Para agregar secciones edite 'app/admin/dashboard.rb'"
     view: "Ver"
     edit: "Editar"
     delete: "Eliminar"
@@ -38,6 +35,10 @@ es:
     has_many_delete: "Eliminar"
     has_many_remove: "Quitar"
     move: "Mover"
+    toggle_dark_mode: "Alternar modo oscuro"
+    toggle_main_navigation_menu: "Alternar el menú de navegación principal"
+    toggle_user_menu: "Alternar menú de usuario"
+    toggle_section: "Alternar sección"
     filters:
       buttons:
         filter: "Filtrar"
@@ -48,15 +49,11 @@ es:
     scopes:
       all: "Todos"
     search_status:
-      headline: "Estado de la búsqueda:"
-      current_scope: "Alcance:"
-      current_filters: "Filtros actuales:"
       no_current_filters: "Ninguno"
     status_tag:
       "yes": "Sí"
       "no": "No"
       "unset": "No"
-    main_content: "Por favor implemente %{model}#main_content para mostrar contenido."
     logout: "Salir"
     powered_by: "Funciona con %{active_admin} %{version}"
     sidebars:
@@ -69,6 +66,8 @@ es:
       multiple: "Mostrando %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> de un total de <b>%{total}</b>"
       multiple_without_total: "Mostrando %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b>"
       per_page: "Por página: "
+      previous: "Anterior"
+      next: "Siguiente"
       entry:
         one: "registro"
         other: "registros"
@@ -76,8 +75,6 @@ es:
     blank_slate:
       content: "No hay %{resource_name} aún."
       link: "Añadir"
-    dropdown_actions:
-      button_label: "Acciones"
     batch_actions:
       button_label: "Acciones en masa"
       default_confirmation: "¿Seguro que quieres hacer esto?"
@@ -145,6 +142,3 @@ es:
       message: "No está autorizado/a a realizar esta acción."
     index_list:
       table: "Tabla"
-      block: "Lista"
-      grid: "Grilla"
-      blog: "Blog"

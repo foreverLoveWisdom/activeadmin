@@ -19,23 +19,23 @@ module ActiveAdmin
       #
       # @example
       #   status_tag(true)
-      #   # => <span class="status_tag yes">Yes</span>
+      #   # => <span class="status-tag" data-status="yes">Yes</span>
       #
       # @example
       #   status_tag(false)
-      #   # => <span class="status_tag no">No</span>
+      #   # => <span class="status-tag" data-status="no">No</span>
       #
       # @example
       #   status_tag(nil)
-      #   # => <span class="status_tag unset">Unknown</span>
+      #   # => <span class="status-tag" data-status="unset">Unknown</span>
       #
       # @example
       #   status_tag('In Progress')
-      #   # => <span class="status_tag">In Progress</span>
+      #   # => <span class="status-tag" data-status="in_progress">In Progress</span>
       #
       # @example
       #   status_tag('Active', class: 'important', id: 'status_123', label: 'on')
-      #   # => <span class="status_tag important" id="status_123">on</span>
+      #   # => <span class="status-tag important" id="status_123" data-status="active">on</span>
       #
       def build(status, options = {})
         label = options.delete(:label)
@@ -50,8 +50,8 @@ module ActiveAdmin
         end
 
         super(content, options)
-
-        add_class(boolean_status.downcase) if boolean_status
+        add_class "status-tag"
+        set_attribute("data-status", convert_status(status)) if status
         add_class(classes) if classes
       end
 
@@ -65,6 +65,13 @@ module ActiveAdmin
           "No"
         when nil
           "Unset"
+        end
+      end
+
+      def convert_status(status)
+        case status
+        when String, Symbol
+          status.to_s.titleize.delete(" ").underscore
         end
       end
     end

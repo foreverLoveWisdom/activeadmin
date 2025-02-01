@@ -21,9 +21,6 @@ sk:
         updated_at: "Upravený"
   active_admin:
     dashboard: Úvod
-    dashboard_welcome:
-      welcome: "Vitajte v Active Admin. Toto je nástenka."
-      call_to_action: "Pre pridanie sekcie na nástenku se pozrite do súboru 'app/admin/dashboard.rb'"
     view: "Zobraziť"
     edit: "Upraviť"
     delete: "Zmazať"
@@ -52,15 +49,11 @@ sk:
     scopes:
       all: "Všetko"
     search_status:
-      headline: "Stav vyhľadávania:"
-      current_scope: "Scope:"
-      current_filters: "Filtre:"
       no_current_filters: "Žiadne"
     status_tag:
       "yes": "Áno"
       "no": "Nie"
       "unset": "Nie"
-    main_content: "Implementujte prosím %{model}#main_content pre zobrazenie obsahu."
     logout: "Odhlásiť"
     powered_by: "%{active_admin} %{version}"
     sidebars:
@@ -80,8 +73,6 @@ sk:
     blank_slate:
       content: "Zatiaľ tu nie je žiadny obsah."
       link: "Vytvoriť"
-    dropdown_actions:
-      button_label: "Akcie"
     batch_actions:
       button_label: "Hromadné akcie"
       default_confirmation: "Ste si istí, že to chcete spraviť?"
@@ -151,6 +142,3 @@ sk:
       message: "Nemáte oprávnenie k vykonaniu tejto akcie."
     index_list:
       table: "Tabuľka"
-      block: "Zoznam"
-      grid: "Tabuľka"
-      blog: "Blog"

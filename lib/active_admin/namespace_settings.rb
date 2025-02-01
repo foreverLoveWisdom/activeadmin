@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-require "active_admin/dynamic_settings_node"
+require_relative "dynamic_settings_node"
 
 module ActiveAdmin
   class NamespaceSettings < DynamicSettingsNode
@@ -12,31 +12,6 @@ module ActiveAdmin
     # The title which gets displayed in the main layout
     register :site_title, "", :string_symbol_or_proc
 
-    # Set the site title link href (defaults to AA dashboard)
-    register :site_title_link, ""
-
-    # Set the site title image displayed in the main layout (has precendence over :site_title)
-    register :site_title_image, "", :string_symbol_or_proc
-
-    # Add to the site head
-    register :head, "", :string_symbol_or_proc
-
-    # Set the site footer text (defaults to Powered by ActiveAdmin text with version)
-    register :footer, "", :string_symbol_or_proc
-
-    # Set a favicon
-    register :favicon, false
-
-    # Additional meta tags to place in head of logged in pages
-    register :meta_tags, {}
-
-    # Additional meta tags to place in head of logged out pages
-    register :meta_tags_for_logged_out_pages, { robots: "noindex, nofollow" }
-
-    # The view factory to use to generate all the view classes. Take
-    # a look at ActiveAdmin::ViewFactory
-    register :view_factory, ActiveAdmin::ViewFactory.new
-
     # The method to call in controllers to get the current user
     register :current_user_method, false
 
@@ -47,9 +22,6 @@ module ActiveAdmin
     # The path to log user's out with. If set to a symbol, we assume
     # that it's a method to call which returns the path
     register :logout_link_path, :destroy_admin_user_session_path
-
-    # The method to use when generating the link for user logout
-    register :logout_link_method, :get
 
     # Whether the batch actions are enabled or not
     register :batch_actions, false
@@ -99,7 +71,8 @@ module ActiveAdmin
       :utf8, :_method, :authenticity_token, :commit, :id
     ]
 
-    # Set flash message keys that shouldn't show in ActiveAdmin
+    # Set flash message keys that shouldn't show in ActiveAdmin.
+    # By default, we remove the `timedout` key from Devise.
     register :flash_keys_to_except, ["timedout"]
 
     # Include association filters by default

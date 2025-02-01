@@ -124,6 +124,24 @@ RSpec.describe ActiveAdmin::ResourceController, type: :controller do
       expect(controller.action_methods.sort).to eq ["batch_action", "create", "destroy", "edit", "index", "new", "show", "update"]
     end
   end
+
+  describe "resource update" do
+    let(:controller) { Admin::CompaniesController.new }
+
+    around do |example|
+      with_resources_during(example) do
+        ActiveAdmin.register Company
+      end
+    end
+
+    it "should not update habtm associations when the resource validation fails" do
+      resource = Company.create! name: "my company", stores: [Store.create!(name: "store 1")]
+
+      controller.send(:update_resource, resource, [{ name: "", store_ids: [] }])
+
+      expect(resource.reload.stores).not_to be_empty
+    end
+  end
 end
 
 RSpec.describe "A specific resource controller", type: :controller do
@@ -255,7 +273,7 @@ RSpec.describe "A specific resource controller", type: :controller do
   end
 
   describe "performing batch_action" do
-    let(:batch_action) { ActiveAdmin::BatchAction.new *batch_action_args, &batch_action_block }
+    let(:batch_action) { ActiveAdmin::BatchAction.new(*batch_action_args, &batch_action_block) }
     let(:batch_action_block) { proc { self.instance_variable_set :@block_context, self.class } }
     let(:params) { ActionController::Parameters.new(http_params) }
 

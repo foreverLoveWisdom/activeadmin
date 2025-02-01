@@ -3,8 +3,6 @@ module ActiveAdmin
   module Filters
 
     class ActiveFilter
-      include ActiveAdmin::ViewHelpers
-
       attr_reader :resource, :condition, :related_class
 
       # Instantiate a `ActiveFilter`
@@ -46,7 +44,7 @@ module ActiveAdmin
       end
 
       def html_options
-        { class: "current_filter current_filter_#{condition.key}" }
+        { "data-filter": condition.key }
       end
 
       private

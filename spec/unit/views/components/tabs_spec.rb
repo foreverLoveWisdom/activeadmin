@@ -20,23 +20,23 @@ RSpec.describe ActiveAdmin::Views::Tabs do
       end
 
       it "should have tab with id based on symbol" do
-        expect(subject).to have_selector("#tabs-overview-#{tabs.object_id}")
+        expect(subject).to have_css("#tabs-overview-#{tabs.object_id}")
       end
 
       it "should have a target attribute with fragment based on symbol" do
-        expect(subject).to have_selector("[data-tabs-target='#tabs-overview-#{tabs.object_id}']")
+        expect(subject).to have_css("[data-tabs-target='#tabs-overview-#{tabs.object_id}']")
       end
 
       it "should have tab with id based on options" do
-        expect(subject).to have_selector("#something_unique")
+        expect(subject).to have_css("#something_unique")
       end
 
       it "should have link with fragment based on options" do
-        expect(subject).to have_selector('[data-tabs-target="#something_unique"]')
+        expect(subject).to have_css('[data-tabs-target="#something_unique"]')
       end
 
       it "should have button with specific css class" do
-        expect(subject).to have_selector("button.some_css_class")
+        expect(subject).to have_link(class: "some_css_class")
       end
     end
 
@@ -52,7 +52,7 @@ RSpec.describe ActiveAdmin::Views::Tabs do
       end
 
       it "should create a tab navigation bar based on the symbol" do
-        expect(subject).to have_button("Overview")
+        expect(subject).to have_link("Overview")
       end
 
       it "should create a tab with a span inside of it" do

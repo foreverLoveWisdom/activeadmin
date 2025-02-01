@@ -8,7 +8,7 @@ module ActiveAdmin
       def build(title, attributes = {})
         super(attributes)
         add_class "panel"
-        @title = h3(title.to_s)
+        @title = h3(title.to_s, class: "panel-title")
         @contents = div(class: "panel-body")
       end
 
@@ -22,7 +22,7 @@ module ActiveAdmin
 
       # Override children? to only report children when the panel's
       # contents have been added to. This ensures that the panel
-      # correcly appends string values, etc.
+      # correctly appends string values, etc.
       def children?
         @contents.children?
       end

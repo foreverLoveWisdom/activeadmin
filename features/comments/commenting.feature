@@ -178,7 +178,7 @@ Feature: Commenting
     And I should see "Displaying comments 51 - 70 of 70 in total"
     And I should not see the pagination "Next" link
 
-  Scenario: Commments through explicit helper from custom controller
+  Scenario: Comments through explicit helper from custom controller
     Given a post with the title "Hello World" written by "Jane Doe" exists
     And a show configuration of:
       """
@@ -191,7 +191,7 @@ Feature: Commenting
           end
 
           show do |post|
-            active_admin_comments
+            active_admin_comments_for(post)
           end
         end
       """
